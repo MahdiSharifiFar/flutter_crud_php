@@ -21,10 +21,11 @@ class _HomePageState extends State<HomePage> {
 
   // use 10.0.2.2 instead of localhost for working on Android Emulator!!!
   // use localhost or 127.0.0.1 for working on Web Browsers!!!
+  final String staticIp = "http://10.0.2.2";
+
   void _postRequest() async {
     try {
-      final response = await http.post(
-          Uri.parse("http://10.0.2.2/api/?myApi=insert"),
+      final response = await http.post(Uri.parse("$staticIp/api/?myApi=insert"),
           body: {
             'name': _nameCtrl.text,
             'family': _familyCtrl.text,
@@ -51,7 +52,7 @@ class _HomePageState extends State<HomePage> {
   void _getRequest() async {
     try {
       final response =
-          await http.get(Uri.parse("http://10.0.2.2/api/?myApi=get"));
+          await http.get(Uri.parse("$staticIp/api/?myApi=get"));
 
       if (response.statusCode == 200)
       // ignore: curly_braces_in_flow_control_structures
@@ -75,7 +76,7 @@ class _HomePageState extends State<HomePage> {
   void _deleteRequest(int id) async {
     try {
       final response = await http.delete(
-          Uri.parse("http://10.0.2.2/api/?myApi=delete"),
+          Uri.parse("$staticIp/api/?myApi=delete"),
           body: {'id': id}.convertToJson());
 
       if (response.statusCode == 200)
@@ -96,7 +97,7 @@ class _HomePageState extends State<HomePage> {
   void _updateRequest(int id, User user) async {
     try {
       final response = await http.post(
-          Uri.parse("http://10.0.2.2/api/?myApi=update"),
+          Uri.parse("$staticIp/api/?myApi=update"),
           body: {
             'id': id,
             'name': user.name,
