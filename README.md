@@ -18,7 +18,10 @@ https://github.com/MahdiSharifiFar/flutter_crud_php/assets/157637159/1bd03ea2-fb
 
     
 ## Usage
+
 **Important Notes :**
+
+The **api** folder contains the server side code file and you should put it in the server or Xampp.
 
 The value of the **staticIp** (in home_page.dart) variable must be specified as follows:
 
